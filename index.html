@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oasis Pool Services - Expert pool construction, luxury villa pools, sauna & steam room installations, maintenance, Jacuzzi, and water treatment solutions.">
     <title>Oasis Pool Services | Pool, Jacuzzi, Sauna & Water Treatment</title>
-    
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,27 +11,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: #f8fafc; color: #334155; line-height: 1.6; }
         
-        header { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px); 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 18px 6%; 
-        }
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 18px 6%; }
         .logo { font-size: 24px; font-weight: 700; color: #0284c7; display: flex; align-items: center; gap: 10px; }
         .nav-links { display: flex; gap: 25px; list-style: none; }
         .nav-links a { text-decoration: none; color: #1e293b; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: #0284c7; }
         .header-cta { background: #0284c7; color: white; padding: 10px 22px; border-radius: 30px; text-decoration: none; font-weight: 600; }
-        .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: #0f172a; cursor: pointer; }
         
-        /* Hero Section */
+        /* Premium Live Swimming Pool Hero Background */
         .hero { 
             height: 100vh; 
             position: relative;
@@ -54,22 +38,8 @@
         .hero p { font-size: 20px; max-width: 780px; margin-bottom: 35px; color: #f1f5f9; font-weight: 300; text-shadow: 0 1px 5px rgba(0,0,0,0.4); }
         .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
         .btn-primary { background: #0284c7; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); }
-        .btn-whatsapp { background: #25d366; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp { background: #25d366; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
 
-        /* Counter Section */
-        .stats-section {
-            background: #0284c7;
-            color: white;
-            padding: 45px 8%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-        .stat-item h3 { font-size: 42px; font-weight: 700; margin-bottom: 5px; }
-        .stat-item p { font-size: 16px; font-weight: 500; opacity: 0.9; }
-
-        /* About Section */
         .about-section { padding: 90px 8%; background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .about-text h2 { font-size: 36px; color: #0f172a; margin-bottom: 20px; font-weight: 700; }
         .about-text p { color: #475569; margin-bottom: 20px; font-size: 16px; }
@@ -77,3 +47,158 @@
         .feature-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #0f172a; }
         .feature-item i { color: #0284c7; }
         .about-img { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        .services-section { padding: 90px 8%; background: #f1f5f9; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 38px; color: #0f172a; font-weight: 700; }
+        .section-header p { color: #64748b; font-size: 18px; margin-top: 10px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .service-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: 0.3s; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+        .service-card img { width: 100%; height: 220px; object-fit: cover; }
+        .service-card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .service-card-body h3 { font-size: 22px; color: #0f172a; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .service-card-body h3 i { color: #0284c7; }
+        .service-card-body p { color: #64748b; font-size: 15px; margin-bottom: 20px; flex-grow: 1; }
+        .card-btn { align-self: start; color: #0284c7; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+        .contact-section { padding: 80px 8%; background: #0f172a; color: white; text-align: center; }
+        .contact-box { max-width: 800px; margin: 0 auto; }
+        .contact-box h2 { font-size: 36px; margin-bottom: 15px; }
+        .contact-box p { color: #94a3b8; font-size: 18px; margin-bottom: 35px; }
+        .phone-display { font-size: 28px; font-weight: 700; color: #38bdf8; margin-bottom: 30px; display: inline-block; background: rgba(255,255,255,0.05); padding: 12px 30px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
+        footer { background: #020617; color: #64748b; text-align: center; padding: 25px; font-size: 14px; }
+
+        @media (max-width: 900px) {
+            .about-section { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 36px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-water"></i> OASIS POOLS</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:+971588081538" class="header-cta"><i class="fa-solid fa-phone"></i> Call Us</a>
+    </header>
+
+    <section class="hero">
+        <h1>Complete Swimming Pool & Spa Solutions</h1>
+        <p>Premium Construction, Maintenance, Jacuzzi, Sauna & Water Treatment Services tailored for Luxury & Durability.</p>
+        <div class="hero-btns">
+            <a href="#services" class="btn-primary">Explore Services</a>
+            <a href="https://wa.me/971588081538?text=Hello%20Oasis%20Pool%20Services" target="_blank" class="btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-text">
+            <h2>About Oasis Pool Services</h2>
+            <p>Welcome to <strong>Oasis Pool Services</strong>! We specialize in swimming pools, Jacuzzis, sauna & steam rooms, and water treatment systems.</p>
+            <p>From custom installations to routine cleaning and repairs, our expert technicians deliver superior quality every time.</p>
+            <div class="about-features">
+                <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Certified Techs</div>
+                <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Premium Gear</div>
+                <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Fast Response</div>
+                <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Best Pricing</div>
+            </div>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Oasis Pool Services" class="about-img">
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Our Specialized Services</h2>
+            <p>Everything you need for clean, luxurious, and safe aquatic spaces.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=80" alt="Swimming Pools">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-water-ladder"></i> Swimming Pools</h3>
+                    <p>End-to-end design, custom construction, and structural installation for residential villas, hotels, and commercial venues.</p>
+                    <a href="https://wa.me/971588081538?text=Inquiry%20about%20Swimming%20Pools" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Jacuzzi Solutions">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-hot-tub-person"></i> Jacuzzi Solutions</h3>
+                    <p>Luxury outdoor and indoor hot tub installations, jet maintenance, heating repairs, and custom spa setups.</p>
+                    <a href="https://wa.me/971588081538?text=Inquiry%20about%20Jacuzzi" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Sauna & Steam Room">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-spa"></i> Sauna & Steam Room</h3>
+                    <p>Custom wooden sauna installations, steam generator setup, aroma therapy systems, and routine thermal maintenance.</p>
+                    <a href="https://wa.me/971588081538?text=Inquiry%20about%20Sauna" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" alt="Pool Maintenance">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-broom"></i> Pool Maintenance</h3>
+                    <p>Scheduled cleaning, deep wall scrubbing, vacuuming, leaf filtration, and filter backwashing for crystal clear water.</p>
+                    <a href="https://wa.me/971588081538?text=Inquiry%20about%20Maintenance" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Water Treatment">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-flask-vial"></i> Water Treatment</h3>
+                    <p>Precise pH balance testing, chlorine & chemical dosing, algae control, and advanced filtration system water purification.</p>
+                    <a href="https://wa.me/971588081538?text=Inquiry%20about%20Water%20Treatment" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Inspection & Repairs">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Inspection & Repairs</h3>
+                    <p>Detailed leak detection, pump & heater replacement, electrical pipe fixes, retiling, and complete system overhaul.</p>
+                    <a href="https://wa.me/971588081538?text=Inquiry%20about%20Repairs" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-box">
+            <h2>Get In Touch With Us</h2>
+            <p>Looking for a consultation, maintenance plan, or new pool installation?</p>
+            <div class="phone-display"><i class="fa-solid fa-phone"></i> +971 58 808 1538</div>
+            <div>
+                <a href="https://wa.me/971588081538?text=Hello%20Oasis%20Pool%20Services" target="_blank" class="btn-whatsapp" style="display: inline-flex;">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Direct on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/971588081538" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <footer>
+        <p>&copy; 2026 Oasis Pool Services. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
