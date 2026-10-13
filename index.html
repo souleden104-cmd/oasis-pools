@@ -15,7 +15,8 @@
         
         /* Navigation Header */
         header { 
-            background: rgba(255, 255, 255, 0.98); 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(8px);
             box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
             position: fixed; 
             width: 100%; 
@@ -32,58 +33,45 @@
         .nav-links a:hover { color: #0284c7; }
         .header-cta { background: #0284c7; color: white; padding: 10px 22px; border-radius: 30px; text-decoration: none; font-weight: 600; }
         
-        /* Hero Section with Live Water Wave Effect */
+        /* Hero Section with Live Real Water Video Background */
         .hero { 
             min-height: 100vh; 
             position: relative;
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.75), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             text-align: center; 
             color: white; 
-            padding: 120px 20px 100px 20px; 
+            padding: 120px 20px 60px 20px; 
             overflow: hidden;
         }
 
-        /* Animated Water Waves SVG Overlay */
-        .ocean-waves {
+        /* Background Video Player */
+        .video-bg {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
         }
 
-        .ocean-waves svg {
-            position: relative;
-            display: block;
-            width: calc(150% + 1.3px);
-            height: 90px;
+        /* Dark Water Overlay for Better Text Visibility */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(2, 132, 199, 0.45));
+            z-index: -1;
         }
 
-        .ocean-waves .shape-fill {
-            fill: #f8fafc;
-        }
-
-        /* Wave movement animation */
-        .wave-animated {
-            animation: moveWave 10s linear infinite alternate;
-        }
-
-        @keyframes moveWave {
-            0% { transform: translateX(0) scaleY(1); }
-            50% { transform: translateX(-25%) scaleY(1.2); }
-            100% { transform: translateX(-50%) scaleY(1); }
-        }
-
-        .hero h1 { font-size: 50px; font-weight: 700; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 2; }
-        .hero p { font-size: 20px; max-width: 800px; margin-bottom: 35px; color: #f1f5f9; font-weight: 300; z-index: 2; }
-        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; z-index: 2; }
+        .hero h1 { font-size: 52px; font-weight: 700; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.6); }
+        .hero p { font-size: 20px; max-width: 800px; margin-bottom: 35px; color: #f1f5f9; font-weight: 300; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
         .btn-primary { background: #0284c7; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); transition: 0.3s; }
         .btn-primary:hover { transform: translateY(-3px); background: #0369a1; }
         .btn-whatsapp { background: #25d366; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: 0.3s; }
@@ -180,8 +168,15 @@
     </header>
 
     <main>
-        <!-- Hero Section with Moving Water Animation -->
+        <!-- Hero Section with Live Water Video Background -->
         <section class="hero">
+            <!-- Background HD Water Video (Auto Loop) -->
+            <video class="video-bg" autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-clear-water-in-a-swimming-pool-42523-large.mp4" type="video/mp4">
+            </video>
+            
+            <div class="video-overlay"></div>
+
             <h1>Complete Swimming Pool & Wellness Solutions</h1>
             <p>Premium Construction, Luxury Villa Pools, Maintenance, Jacuzzi, Sauna & Water Treatment Services tailored for Luxury & Durability.</p>
             <div class="hero-btns">
@@ -189,13 +184,6 @@
                 <a href="https://wa.me/971588081538?text=Hello%20Oasis%20Pool%20Services" target="_blank" class="btn-whatsapp">
                     <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
                 </a>
-            </div>
-
-            <!-- Wave Animation SVG Overlay -->
-            <div class="ocean-waves">
-                <svg class="wave-animated" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" class="shape-fill"></path>
-                </svg>
             </div>
         </section>
 
@@ -232,7 +220,7 @@
             </div>
         </section>
 
-        <!-- Services Section with Unique Images -->
+        <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="section-header">
                 <h2>Our Specialized Services</h2>
@@ -302,7 +290,7 @@
             </div>
         </section>
 
-        <!-- Featured Projects Gallery with Specified Locations & Distinct Images -->
+        <!-- Featured Projects Gallery -->
         <section id="projects" class="gallery-section">
             <div class="section-header">
                 <h2>Our Completed Projects</h2>
