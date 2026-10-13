@@ -33,13 +33,13 @@
         .nav-links a:hover { color: #0284c7; }
         .header-cta { background: #0284c7; color: white; padding: 10px 22px; border-radius: 30px; text-decoration: none; font-weight: 600; }
         
-        /* Hero Section with Live Animated Water Background */
+        /* Hero Section with Live Moving Water Background Effect */
         .hero { 
             min-height: 100vh; 
             position: relative;
             background: linear-gradient(135deg, #0284c7, #0f172a, #0369a1);
-            background-size: 300% 300%;
-            animation: waterGradient 12s ease infinite;
+            background-size: 400% 400%;
+            animation: waterFlowBackground 15s ease infinite;
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -50,50 +50,44 @@
             overflow: hidden;
         }
 
-        /* Real Live Water Motion Background Effect */
+        /* Real Water Wave Rippling Layer */
         .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(56,189,248,0.3) 0%, rgba(2,132,199,0.1) 40%, transparent 70%);
+            animation: rippleWave 8s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Another shifting wave layer for realistic water movement */
+        .hero::after {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            opacity: 0.35;
+            opacity: 0.3;
             mix-blend-mode: overlay;
-            animation: waterZoom 20s ease-in-out infinite alternate;
-            z-index: 0;
+            animation: waterShift 12s ease-in-out infinite alternate;
+            z-index: 1;
         }
 
-        @keyframes waterGradient {
+        @keyframes waterFlowBackground {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        @keyframes waterZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
+        @keyframes rippleWave {
+            0% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 0.9; }
+            100% { transform: scale(0.8) rotate(360deg); opacity: 0.5; }
         }
 
-        /* Background Video Element */
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.75;
-        }
-
-        /* Dark Water Overlay for High Contrast Text */
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.5);
-            z-index: 2;
+        @keyframes waterShift {
+            0% { transform: scale(1) translateY(0); }
+            100% { transform: scale(1.08) translateY(-15px); }
         }
 
         .hero h1, .hero p, .hero-btns { position: relative; z-index: 3; }
@@ -196,14 +190,8 @@
     </header>
 
     <main>
-        <!-- Hero Section with Dynamic Live Water Background -->
+        <!-- Hero Section with Continuous Moving Live Water Ripple Effect -->
         <section class="hero">
-            <!-- Background Video & Animated Water Effects -->
-            <video class="video-bg" autoplay loop muted playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-clear-water-in-a-swimming-pool-42523-large.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay"></div>
-
             <h1>Complete Swimming Pool & Wellness Solutions</h1>
             <p>Premium Construction, Luxury Villa Pools, Maintenance, Jacuzzi, Sauna & Water Treatment Services tailored for Luxury & Durability.</p>
             <div class="hero-btns">
