@@ -32,11 +32,11 @@
         .nav-links a:hover { color: #0284c7; }
         .header-cta { background: #0284c7; color: white; padding: 10px 22px; border-radius: 30px; text-decoration: none; font-weight: 600; }
         
-        /* Hero Section with Fade Animation */
+        /* Hero Section with Live Water Wave Effect */
         .hero { 
             min-height: 100vh; 
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.65)), 
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.75), rgba(15, 23, 42, 0.85)), 
                         url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             display: flex; 
             flex-direction: column; 
@@ -44,15 +44,48 @@
             align-items: center; 
             text-align: center; 
             color: white; 
-            padding: 120px 20px 60px 20px; 
-            animation: fadeIn 1.2s ease-in-out;
+            padding: 120px 20px 100px 20px; 
+            overflow: hidden;
         }
 
-        .hero h1 { font-size: 50px; font-weight: 700; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
-        .hero p { font-size: 20px; max-width: 800px; margin-bottom: 35px; color: #f1f5f9; font-weight: 300; }
-        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        /* Animated Water Waves SVG Overlay */
+        .ocean-waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .ocean-waves svg {
+            position: relative;
+            display: block;
+            width: calc(150% + 1.3px);
+            height: 90px;
+        }
+
+        .ocean-waves .shape-fill {
+            fill: #f8fafc;
+        }
+
+        /* Wave movement animation */
+        .wave-animated {
+            animation: moveWave 10s linear infinite alternate;
+        }
+
+        @keyframes moveWave {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(1.2); }
+            100% { transform: translateX(-50%) scaleY(1); }
+        }
+
+        .hero h1 { font-size: 50px; font-weight: 700; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 2; }
+        .hero p { font-size: 20px; max-width: 800px; margin-bottom: 35px; color: #f1f5f9; font-weight: 300; z-index: 2; }
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; z-index: 2; }
         .btn-primary { background: #0284c7; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); transition: 0.3s; }
-        .btn-primary:hover { transform: translateY(-3px); }
+        .btn-primary:hover { transform: translateY(-3px); background: #0369a1; }
         .btn-whatsapp { background: #25d366; color: white; padding: 14px 32px; font-size: 16px; border-radius: 30px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: 0.3s; }
         .btn-whatsapp:hover { transform: translateY(-3px); }
 
@@ -95,12 +128,13 @@
 
         /* Projects Gallery Section */
         .gallery-section { padding: 90px 8%; background: white; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .gallery-card { position: relative; border-radius: 16px; overflow: hidden; height: 260px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .gallery-card { position: relative; border-radius: 16px; overflow: hidden; height: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .gallery-card:hover img { transform: scale(1.08); }
-        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(15, 23, 42, 0.85)); padding: 20px; color: white; }
-        .gallery-overlay h4 { font-size: 18px; font-weight: 600; }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(15, 23, 42, 0.9)); padding: 20px; color: white; }
+        .gallery-overlay h4 { font-size: 20px; font-weight: 600; }
+        .gallery-overlay p { font-size: 14px; color: #38bdf8; margin-top: 4px; }
 
         /* Customer Reviews Section */
         .reviews-section { padding: 90px 8%; background: #f1f5f9; }
@@ -116,4 +150,259 @@
         .contact-box { max-width: 800px; margin: 0 auto; }
         .contact-box h2 { font-size: 36px; margin-bottom: 15px; }
         .contact-box p { color: #94a3b8; font-size: 18px; margin-bottom: 25px; }
-        .address-box { font-size: 18px; color: #38bdf8; margin-bottom: 20
+        .address-box { font-size: 18px; color: #38bdf8; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .phone-display { font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 30px; display: inline-block; background: rgba(255,255,255,0.08); padding: 12px 30px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); text-decoration: none; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
+        footer { background: #020617; color: #64748b; text-align: center; padding: 25px; font-size: 14px; }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .about-section { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 36px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-water"></i> OASIS POOLS</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:+971588081538" class="header-cta"><i class="fa-solid fa-phone"></i> Call Us</a>
+    </header>
+
+    <main>
+        <!-- Hero Section with Moving Water Animation -->
+        <section class="hero">
+            <h1>Complete Swimming Pool & Wellness Solutions</h1>
+            <p>Premium Construction, Luxury Villa Pools, Maintenance, Jacuzzi, Sauna & Water Treatment Services tailored for Luxury & Durability.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn-primary">Explore Our Projects</a>
+                <a href="https://wa.me/971588081538?text=Hello%20Oasis%20Pool%20Services" target="_blank" class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+
+            <!-- Wave Animation SVG Overlay -->
+            <div class="ocean-waves">
+                <svg class="wave-animated" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Project Counter Section -->
+        <section class="stats-section">
+            <div class="stat-item">
+                <h3>80+</h3>
+                <p>Completed Projects</p>
+            </div>
+            <div class="stat-item">
+                <h3>12</h3>
+                <p>Current Projects</p>
+            </div>
+            <div class="stat-item">
+                <h3>11</h3>
+                <p>Active AMCs</p>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-text">
+                <h2>About Oasis Pool Services</h2>
+                <p>Welcome to <strong>Oasis Pool Services</strong>! We specialize in custom swimming pool construction, luxury villa pools, Jacuzzis, sauna & steam rooms, and water treatment systems.</p>
+                <p>From new installations to routine cleaning, annual maintenance contracts (AMC), and repairs, our certified technicians deliver top quality every time.</p>
+                <div class="about-features">
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Certified Techs</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Premium Gear</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Fast Response</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Best Pricing</div>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Oasis Pool Services" class="about-img">
+            </div>
+        </section>
+
+        <!-- Services Section with Unique Images -->
+        <section id="services" class="services-section">
+            <div class="section-header">
+                <h2>Our Specialized Services</h2>
+                <p>Everything you need for clean, luxurious, and safe aquatic spaces.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Luxury Villa Pools -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Luxury Villa Pools">
+                    <div class="service-card-body">
+                        <h3><i class="fa-solid fa-house-chimney-window"></i> Luxury Villa Pools</h3>
+                        <p>Bespoke luxury swimming pool design, infinity edge pools, and custom backyard transformations tailored for private residential villas.</p>
+                        <a href="https://wa.me/971588081538?text=Inquiry%20about%20Luxury%20Villa%20Pools" target="_blank" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Swimming Pools -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=80" alt="Swimming Pools">
+                    <div class="service-card-body">
+                        <h3><i class="fa-solid fa-water-ladder"></i> Swimming Pools</h3>
+                        <p>End-to-end design, custom construction, and structural installation for residential villas, hotels, and commercial venues.</p>
+                        <a href="https://wa.me/971588081538?text=Inquiry%20about%20Swimming%20Pools" target="_blank" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Jacuzzi Solutions -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Jacuzzi Solutions">
+                    <div class="service-card-body">
+                        <h3><i class="fa-solid fa-hot-tub-person"></i> Jacuzzi Solutions</h3>
+                        <p>Luxury outdoor and indoor hot tub installations, jet maintenance, heating repairs, and custom setups.</p>
+                        <a href="https://wa.me/971588081538?text=Inquiry%20about%20Jacuzzi" target="_blank" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Sauna & Steam Room -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Sauna & Steam Room">
+                    <div class="service-card-body">
+                        <h3><i class="fa-solid fa-bath"></i> Sauna & Steam Room</h3>
+                        <p>Custom wooden sauna installations, steam generator setup, aroma therapy systems, and routine thermal maintenance.</p>
+                        <a href="https://wa.me/971588081538?text=Inquiry%20about%20Sauna" target="_blank" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Pool Maintenance -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" alt="Pool Maintenance">
+                    <div class="service-card-body">
+                        <h3><i class="fa-solid fa-broom"></i> Pool Maintenance & AMC</h3>
+                        <p>Scheduled cleaning, deep wall scrubbing, vacuuming, leaf filtration, filter backwashing, and Annual Maintenance Contracts (AMC).</p>
+                        <a href="https://wa.me/971588081538?text=Inquiry%20about%20Maintenance" target="_blank" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Water Treatment -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Water Treatment">
+                    <div class="service-card-body">
+                        <h3><i class="fa-solid fa-flask-vial"></i> Water Treatment</h3>
+                        <p>Precise pH balance testing, chlorine & chemical dosing, algae control, and advanced filtration system water purification.</p>
+                        <a href="https://wa.me/971588081538?text=Inquiry%20about%20Water%20Treatment" target="_blank" class="card-btn">Inquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Gallery with Specified Locations & Distinct Images -->
+        <section id="projects" class="gallery-section">
+            <div class="section-header">
+                <h2>Our Completed Projects</h2>
+                <p>Explore some of our showcase pool installations in Abu Dhabi.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Khalifa City Villa Pool">
+                    <div class="gallery-overlay">
+                        <h4>Khalifa City</h4>
+                        <p>Luxury Private Villa Pool</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1562778612-e1e0cda68616?auto=format&fit=crop&w=800&q=80" alt="Marina Villa Pool">
+                    <div class="gallery-overlay">
+                        <h4>Marina Villa</h4>
+                        <p>Modern Infinity Edge Pool</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Royal Elite Project">
+                    <div class="gallery-overlay">
+                        <h4>Royal Elite</h4>
+                        <p>Custom Pool & Spa Installation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section id="reviews" class="reviews-section">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <p>What our satisfied clients in Abu Dhabi have to say.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Oasis Pool Services built our villa pool in Khalifa City. High quality work and excellent maintenance team!"</p>
+                    <div class="client-info">
+                        <h5>John D.</h5>
+                        <p>Villa Owner, Khalifa City</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"We have an ongoing AMC with Oasis for our Marina Villa. Water quality is always crystal clear!"</p>
+                    <div class="client-info">
+                        <h5>Saeed A.</h5>
+                        <p>Marina Villa Owner</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Very professional team for Royal Elite pool project. Excellent design and timely delivery."</p>
+                    <div class="client-info">
+                        <h5>Sarah M.</h5>
+                        <p>Homeowner</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Address Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-box">
+                <h2>Get In Touch With Us</h2>
+                <p>Looking for a consultation, AMC contract, or custom villa pool design?</p>
+                
+                <div class="address-box">
+                    <i class="fa-solid fa-location-dot"></i> Coolwind, Mussafah M2, Abu Dhabi
+                </div>
+
+                <a href="tel:+971588081538" class="phone-display"><i class="fa-solid fa-phone"></i> +971 58 808 1538</a>
+                
+                <div>
+                    <a href="https://wa.me/971588081538?text=Hello%20Oasis%20Pool%20Services" target="_blank" class="btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Chat Direct on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/971588081538" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <footer>
+        <p>&copy; 2026 Oasis Pool Services. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
